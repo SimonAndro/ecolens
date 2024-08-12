@@ -48,7 +48,7 @@ source $VENV
 
 exec gunicorn \
     $RELOAD_OPTION \
-      main:app \
+      app.main:app \
     --name $NAME \
     --workers $WORKERS \
     --worker-class $WORKER_CLASS \
