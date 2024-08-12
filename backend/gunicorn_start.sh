@@ -45,6 +45,7 @@ fi
 
 cd $DIR
 source $VENV
+echo $VENV
 
 exec gunicorn \
     $RELOAD_OPTION \
