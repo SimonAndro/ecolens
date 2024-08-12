@@ -1,10 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
 class ImageService extends ChangeNotifier {
-  final String apiUrl = 'http://10.0.2.2:3000/upload-image';
+  final String apiUrl = 'https://jupyter.socialclark.com/upload-image';
 
   File? _image;
   String _recommendations = '';
@@ -43,7 +44,8 @@ class ImageService extends ChangeNotifier {
       print(responseBody);
 
       if (response.statusCode == 200) {
-        _recommendations = responseBody;
+        var data = jsonDecode(responseBody);
+        _recommendations = data['recommendations'];
       } else {
         _recommendations = 'Failed to get recommendations';
       }

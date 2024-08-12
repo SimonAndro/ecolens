@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => ImageService(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'EcoLens',
         theme: ThemeData(
           primarySwatch: Colors.green,
